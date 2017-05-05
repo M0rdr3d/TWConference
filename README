@@ -1,0 +1,58 @@
+===========================================
+DISEÑO E IMPLEMENTACIÓN
+===========================================
+La aplicación tiene un diseño sencillo y va a funcionar
+en modo de línea de comandos, consta de una capa para interactuar con el usuario (Main)
+y es donde se llama (se orquesta) a las demás clases que pueden ser vistas como capas de servicios y modelo de datos.
+
+(Core)
+Tenemos dos interfaces  FileManager y OrganizerCore que gestionan el manejo de archivo de entrada y el algoritmo
+de creación de las temáticas (Tracks) de ésta forma, si se requiere cambiar la implementación
+de dichas funcionalidades se podría hacer facilmente.
+
+(Data)
+Tenemos la clase Talk que encapsula la información de una charla de la conferencia. Ya que las charlas son
+colecciones de la clase Talk, no hemos creido necesario crear otros objetos, para mantener el diseño sencillo.
+
+Asumimos para encontrar los minutos de la charla que debemos localizer el patrón <numero>min ejemplo:
+33min  1min 
+
+por ejemplo no es válido: 
+55 min
+por el espacio en blanco
+
+para esto se utilizó una expresión regular.
+Las líneas que no cumplan con este formato no serán tomadas en cuenta.
+
+En el caso de los minutos, la charla de menor duración es de 5 minutos o 'lightning'
+y la de máxima duración es de 240 minutos, ya que ésta es una charla que puede ser ingresada de continuo
+en una sesión de la tarde, ya que no se indica que una charla larga puede ser dividida en la mañana
+y la tarde.
+ 
+===========================================
+EJECUCIÓN
+===========================================
+
+Se puede importar el archivo Conference.rar,
+el cual es un proyecto de Eclipse IDE, compilado y ejecutado.
+Se incluye el código fuente y todo lo necesario.
+Al igual se incluyen pruebas unitarias las cuales pueden ser ejecutadas con eclipse.
+El proyecto se envia configurado para ejecutarse con el JDK 1.8
+
+Para ejecutar el programa se debe usar la clase Main.java del paquete org.thoughtworks.conference.main
+
+Al ejecutar el programa se pedirá al usuario que ingrese el path y el nombre del archivo
+Ejemplo:
+
+En sistemas like Unix:
+/home/kurobayashi/files/input.txt 
+
+Windows:
+c:\documents\input.txt
+
+Puede colocarse la ruta absoluta al archivo o la ruta relativa.
+
+En el directorio /Conference/testingFiles  se puede encontrar unos archivos para pruebas
+
+
+  

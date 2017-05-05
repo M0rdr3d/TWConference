@@ -1,0 +1,4 @@
+Robotic Vision 70min
+Graphic Engine Architecture 15min
+Open Hardware 85 min
+Semantic Web  40min
